@@ -1,301 +1,206 @@
 
-// ================================
-// AURIX - FUNCIONALIDADES
-// ================================
+document.addEventListener("DOMContentLoaded", () => {
 
-const WHATSAPP = "5544984133529";
+    // =====================================
+    // 1. MENU MOBILE
+    // =====================================
 
-const produtos = {
-    "Camiseta Essential": 89.90,
-    "Look Elegance": 159.90,
-    "Urban Style": 129.90,
-    "Acessório Gold": 79.90
-};
+    const menuButton = document.querySelector(".menu-toggle");
+    const nav = document.querySelector(".nav");
 
-let carrinho = [];
+    if (menuButton && nav) {
 
-// ================================
-// MENU MOBILE
-// ================================
+        menuButton.addEventListener("click", () => {
+            const aberto = nav.classList.toggle("active");
 
-const menuButton = document.getElementById("menuButton");
-const navigation = document.getElementById("navigation");
-
-menuButton.addEventListener("click", () => {
-    navigation.classList.toggle("active");
-});
-
-navigation.querySelectorAll("a").forEach(link => {
-    link.addEventListener("click", () => {
-        navigation.classList.remove("active");
-    });
-});
-
-// ================================
-// FILTROS DE PRODUTOS
-// ================================
-
-const categorias = document.querySelectorAll(".category");
-const cards = document.querySelectorAll(".product-card");
-
-categorias.forEach(botao => {
-    botao.addEventListener("click", () => {
-
-        categorias.forEach(item => item.classList.remove("active"));
-        botao.classList.add("active");
-
-        const filtro = botao.dataset.filter;
-
-        cards.forEach(card => {
-            const categoria = card.dataset.category;
-
-            card.style.display =
-                filtro === "todos" || categoria === filtro
-                    ? ""
-                    : "none";
+            menuButton.setAttribute("aria-expanded", aberto);
+            menuButton.setAttribute(
+                "aria-label",
+                aberto ? "Fechar menu" : "Abrir menu"
+            );
         });
 
-    });
-});
-
-// ================================
-// CARRINHO
-// ================================
-
-const cartButton = document.getElementById("cartButton");
-const cartOverlay = document.getElementById("cartOverlay");
-const closeCart = document.getElementById("closeCart");
-const cartCount = document.getElementById("cartCount");
-const cartItems = document.getElementById("cartItems");
-const cartTotal = document.getElementById("cartTotal");
-const checkoutButton = document.getElementById("checkoutButton");
-
-cartButton.addEventListener("click", () => {
-    cartOverlay.classList.add("open");
-});
-
-closeCart.addEventListener("click", () => {
-    cartOverlay.classList.remove("open");
-});
-
-cartOverlay.addEventListener("click", event => {
-    if (event.target === cartOverlay) {
-        cartOverlay.classList.remove("open");
-    }
-});
-
-// ================================
-// ADICIONAR PRODUTO
-// ================================
-
-document.querySelectorAll(".quick-add").forEach(botao => {
-
-    botao.addEventListener("click", () => {
-
-        const nome = botao.dataset.product;
-        const preco = produtos[nome];
-
-        if (!preco) return;
-
-        const existente = carrinho.find(item => item.nome === nome);
-
-        if (existente) {
-            existente.quantidade++;
-        } else {
-            carrinho.push({
-                nome,
-                preco,
-                quantidade: 1
+        nav.querySelectorAll("a").forEach(link => {
+            link.addEventListener("click", () => {
+                nav.classList.remove("active");
+                menuButton.setAttribute("aria-expanded", "false");
+                menuButton.setAttribute("aria-label", "Abrir menu");
             });
-        }
-
-        atualizarCarrinho();
-
-        cartOverlay.classList.add("open");
-
-    });
-
-});
-
-// ================================
-// ATUALIZAR CARRINHO
-// ================================
-
-function atualizarCarrinho() {
-
-    cartItems.innerHTML = "";
-
-    if (carrinho.length === 0) {
-
-        cartItems.innerHTML =
-            '<p class="empty-cart">Seu carrinho está vazio.</p>';
-
-    }
-
-    carrinho.forEach((item, index) => {
-
-        const elemento = document.createElement("div");
-
-        elemento.style.cssText = `
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 15px;
-            padding: 18px 0;
-            border-bottom: 1px solid rgba(198,166,106,.15);
-        `;
-
-        const informacoes = document.createElement("div");
-
-        const nome = document.createElement("strong");
-        nome.textContent = item.nome;
-
-        const detalhe = document.createElement("p");
-        detalhe.style.cssText = "color:#aaa;font-size:12px;margin-top:8px;";
-        detalhe.textContent =
-            `${item.quantidade} x ${formatarMoeda(item.preco)}`;
-
-        informacoes.append(nome, detalhe);
-
-        const remover = document.createElement("button");
-        remover.textContent = "REMOVER";
-        remover.style.cssText = `
-            background: transparent;
-            border: none;
-            color: #c6a66a;
-            font-size: 10px;
-            cursor: pointer;
-        `;
-
-        remover.addEventListener("click", () => {
-            carrinho.splice(index, 1);
-            atualizarCarrinho();
         });
 
-        elemento.append(informacoes, remover);
-        cartItems.appendChild(elemento);
-
-    });
-
-    const quantidade = carrinho.reduce(
-        (total, item) => total + item.quantidade,
-        0
-    );
-
-    const total = carrinho.reduce(
-        (soma, item) => soma + item.preco * item.quantidade,
-        0
-    );
-
-    cartCount.textContent = quantidade;
-    cartTotal.textContent = formatarMoeda(total);
-
-}
-
-// ================================
-// FORMATAR PREÇOS
-// ================================
-
-function formatarMoeda(valor) {
-
-    return valor.toLocaleString("pt-BR", {
-        style: "currency",
-        currency: "BRL"
-    });
-
-}
-
-// ================================
-// FINALIZAR PELO WHATSAPP
-// ================================
-
-checkoutButton.addEventListener("click", () => {
-
-    if (carrinho.length === 0) {
-
-        alert("Seu carrinho está vazio!");
-        return;
-
     }
 
-    let mensagem = "Olá! Gostaria de solicitar um pedido demonstrativo na AURIX.\n\n";
 
-    carrinho.forEach(item => {
+    // =====================================
+    // 2. EFEITO DO CABEÇALHO AO ROLAR
+    // =====================================
 
-        mensagem +=
-            `${item.nome} - ${item.quantidade} unidade(s) - ${formatarMoeda(item.preco * item.quantidade)}\n`;
+    const header = document.querySelector(".header");
 
-    });
+    function atualizarHeader() {
+        if (!header) return;
 
-    const total = carrinho.reduce(
-        (soma, item) => soma + item.preco * item.quantidade,
-        0
-    );
-
-    mensagem += `\nTotal ilustrativo: ${formatarMoeda(total)}`;
-    mensagem += "\n\nSei que esta é uma loja demonstrativa.";
-
-    const url =
-        `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(mensagem)}`;
-
-    window.open(url, "_blank", "noopener,noreferrer");
-
-});
-
-// ================================
-// ANO AUTOMÁTICO
-// ================================
-
-document.getElementById("year").textContent =
-    new Date().getFullYear();
-
-// ================================
-// ANIMAÇÃO AO ROLAR
-// ================================
-
-const observador = new IntersectionObserver((entradas) => {
-
-    entradas.forEach(entrada => {
-
-        if (entrada.isIntersecting) {
-
-            entrada.target.classList.add("visible");
-
-            observador.unobserve(entrada.target);
-
+        if (window.scrollY > 50) {
+            header.style.background = "rgba(5, 5, 5, 0.97)";
+            header.style.boxShadow = "0 5px 30px rgba(0,0,0,0.4)";
+        } else {
+            header.style.background = "rgba(5, 5, 5, 0.85)";
+            header.style.boxShadow = "none";
         }
+    }
+
+    window.addEventListener("scroll", atualizarHeader);
+    atualizarHeader();
+
+
+    // =====================================
+    // 3. ANIMAÇÕES AO APARECER NA TELA
+    // =====================================
+
+    const elementos = document.querySelectorAll(
+        ".service-card, .about-content, .about-visual, .section-header, .contact-form, .contact"
+    );
+
+    if ("IntersectionObserver" in window) {
+
+        const observer = new IntersectionObserver((entries, observerAtual) => {
+
+            entries.forEach(entry => {
+
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("visible");
+                    observerAtual.unobserve(entry.target);
+                }
+
+            });
+
+        }, {
+            threshold: 0.15
+        });
+
+        elementos.forEach(elemento => {
+            elemento.classList.add("reveal");
+            observer.observe(elemento);
+        });
+
+    } else {
+        elementos.forEach(elemento => {
+            elemento.classList.add("visible");
+        });
+    }
+
+
+    // =====================================
+    // 4. EFEITO 3D DO CARTÃO PRINCIPAL
+    // =====================================
+
+    const card = document.querySelector(".tech-card");
+
+    if (card && window.matchMedia("(hover: hover)").matches) {
+
+        card.addEventListener("mousemove", event => {
+
+            const rect = card.getBoundingClientRect();
+
+            const x = event.clientX - rect.left;
+            const y = event.clientY - rect.top;
+
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+
+            const rotateX = (centerY - y) / 15;
+            const rotateY = (x - centerX) / 15;
+
+            card.style.transform =
+                `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+
+        });
+
+        card.addEventListener("mouseleave", () => {
+            card.style.transform = "rotateY(-12deg) rotateX(5deg)";
+        });
+
+    }
+
+
+    // =====================================
+    // 5. EFEITO NOS CARDS DE SERVIÇOS
+    // =====================================
+
+    document.querySelectorAll(".service-card").forEach(service => {
+
+        service.addEventListener("mouseenter", () => {
+            service.style.boxShadow =
+                "0 20px 45px rgba(212,175,99,0.12)";
+        });
+
+        service.addEventListener("mouseleave", () => {
+            service.style.boxShadow = "none";
+        });
 
     });
 
-}, {
-    threshold: 0.12
-});
 
-document.querySelectorAll(
-    ".product-card, .benefit, .about-content, .editorial-content"
-).forEach(elemento => {
+    // =====================================
+    // 6. FORMULÁRIO DE ORÇAMENTO
+    // =====================================
 
-    elemento.style.opacity = "0";
-    elemento.style.transform = "translateY(25px)";
-    elemento.style.transition = "opacity .7s ease, transform .7s ease";
+    const formulario = document.querySelector("#orcamento");
 
-    observador.observe(elemento);
+    if (formulario) {
 
-});
+        formulario.addEventListener("submit", event => {
 
-const estiloAnimacao = document.createElement("style");
+            event.preventDefault();
 
-estiloAnimacao.textContent = `
-    .visible {
-        opacity: 1 !important;
-        transform: translateY(0) !important;
+            const nome = document.querySelector("#nome").value.trim();
+            const email = document.querySelector("#email").value.trim();
+            const servico = document.querySelector("#servico").value;
+            const mensagem = document.querySelector("#mensagem").value.trim();
+
+            if (!nome || !email || !servico || !mensagem) {
+                alert("Preencha todos os campos antes de continuar.");
+                return;
+            }
+
+            const telefone = "5544984133529";
+
+            const texto = `Olá! Vim pelo site da NEXORA DIGITAL.
+
+Nome: ${nome}
+E-mail: ${email}
+Serviço: ${servico}
+
+Descrição do projeto:
+${mensagem}
+
+Gostaria de solicitar um orçamento!`;
+
+            const url = `https://wa.me/${telefone}?text=${encodeURIComponent(texto)}`;
+
+            window.open(url, "_blank", "noopener,noreferrer");
+
+        });
+
     }
-`;
 
-document.head.appendChild(estiloAnimacao);
 
-// ================================
-// FIM DO PROJETO AURIX
-// ================================
+    // =====================================
+    // 7. ANO AUTOMÁTICO NO RODAPÉ
+    // =====================================
 
-console.log("AURIX carregada com sucesso!");
+    document.querySelectorAll(".footer p").forEach(footerText => {
+
+        footerText.textContent =
+            `© ${new Date().getFullYear()} NEXORA DIGITAL. Todos os direitos reservados.`;
+
+    });
+
+
+    // =====================================
+    // 8. INICIALIZAÇÃO
+    // =====================================
+
+    console.log("NEXORA DIGITAL inicializada com sucesso!");
+
+});

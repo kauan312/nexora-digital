@@ -6,14 +6,120 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Serviços | NEXORA DIGITAL</title>
-    <meta name="description" content="Conheça os serviços da NEXORA DIGITAL: desenvolvimento de sites, sistemas personalizados, lojas virtuais, segurança digital e suporte tecnológico.">
-    <meta name="keywords" content="criação de sites, sistemas personalizados, lojas virtuais, segurança digital">
-    <meta name="author" content="NEXORA DIGITAL">
-    <meta name="robots" content="index, follow">
-    <meta name="theme-color" content="#050505">
+    <meta name="description" content="Conheça os serviços e projetos da NEXORA DIGITAL.">
 
     <link rel="stylesheet" href="style.css">
+
+    <style>
+        .portfolio {
+            padding: 80px 0;
+            background: #080808;
+        }
+
+        .portfolio-card {
+            display: grid;
+            grid-template-columns: 1.1fr 1fr;
+            gap: 35px;
+            align-items: center;
+            margin-top: 40px;
+            padding: 25px;
+            background: linear-gradient(145deg, #171717, #090909);
+            border: 1px solid rgba(212,175,99,.3);
+            border-radius: 16px;
+            transition: .4s;
+        }
+
+        .portfolio-card:hover {
+            transform: translateY(-6px);
+            border-color: #d4af63;
+            box-shadow: 0 20px 50px rgba(212,175,99,.12);
+        }
+
+        .portfolio-image {
+            overflow: hidden;
+            border-radius: 12px;
+        }
+
+        .portfolio-image img {
+            display: block;
+            width: 100%;
+            height: 330px;
+            object-fit: cover;
+            transition: .5s;
+        }
+
+        .portfolio-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .portfolio-info h3 {
+            font-size: 36px;
+            color: white;
+            margin: 15px 0;
+        }
+
+        .portfolio-info h3 span {
+            color: #d4af63;
+        }
+
+        .portfolio-info p {
+            color: #aaa;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        .project-label {
+            display: inline-block;
+            padding: 8px 13px;
+            color: #d4af63;
+            border: 1px solid rgba(212,175,99,.4);
+            border-radius: 30px;
+            font-size: 11px;
+            letter-spacing: 1px;
+        }
+
+        .portfolio-button {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 14px 25px;
+            background: linear-gradient(135deg, #d4af63, #a9823f);
+            color: #080808;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 6px;
+            transition: .3s;
+        }
+
+        .portfolio-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(212,175,99,.2);
+        }
+
+        @media(max-width: 768px) {
+            .portfolio-card {
+                grid-template-columns: 1fr;
+                padding: 16px;
+            }
+
+            .portfolio-image img {
+                height: 240px;
+            }
+
+            .portfolio-info h3 {
+                font-size: 29px;
+            }
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        #lista-servicos {
+            scroll-margin-top: 90px;
+        }
+    </style>
 </head>
+
 <body>
 
 <header class="header">
@@ -39,8 +145,14 @@
     <div class="container hero-content">
         <div class="hero-info">
             <span class="tag">NOSSAS SOLUÇÕES</span>
+
             <h1>Tecnologia que transforma <span>ideias em resultados.</span></h1>
-            <p>Conheça nossas soluções digitais desenvolvidas para impulsionar negócios e criar novas oportunidades.</p>
+
+            <p>
+                Conheça nossas soluções digitais desenvolvidas para
+                impulsionar negócios e criar novas oportunidades.
+            </p>
+
             <div class="hero-buttons">
                 <a href="contato.html" class="btn-primary">Solicitar orçamento</a>
                 <a href="#lista-servicos" class="btn-outline">Ver serviços</a>
@@ -49,8 +161,11 @@
     </div>
 </section>
 
+<!-- SERVIÇOS E PORTFÓLIO -->
 <section class="services" id="lista-servicos">
+
     <div class="container">
+
         <div class="section-header">
             <span class="tag">O QUE OFERECEMOS</span>
             <h2>Nossos <span>serviços</span></h2>
@@ -58,6 +173,7 @@
         </div>
 
         <div class="services-grid">
+
             <article class="service-card">
                 <div class="service-icon">01</div>
                 <h3>Desenvolvimento Web</h3>
@@ -93,8 +209,63 @@
                 <h3>Consultoria Tecnológica</h3>
                 <p>Orientação para escolher soluções tecnológicas adequadas.</p>
             </article>
+
         </div>
+
+        <!-- AURIX APARECE LOGO ABAIXO DOS SERVIÇOS -->
+
+        <div class="portfolio" id="portfolio">
+
+            <div class="section-header">
+                <span class="tag">NOSSO PORTFÓLIO</span>
+                <h2>Projeto em <span>destaque</span></h2>
+                <p>Conheça um exemplo de experiência digital desenvolvida pela NEXORA DIGITAL.</p>
+            </div>
+
+            <article class="portfolio-card">
+
+                <div class="portfolio-image">
+                    <img
+                        src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1000"
+                        alt="Ambiente de moda da loja demonstrativa AURIX"
+                        loading="lazy"
+                    >
+                </div>
+
+                <div class="portfolio-info">
+
+                    <span class="project-label">PROJETO DEMONSTRATIVO</span>
+
+                    <h3>AURIX <span>Store</span></h3>
+
+                    <p>
+                        Uma loja virtual de moda com identidade visual
+                        premium, criada para demonstrar o potencial de
+                        um e-commerce moderno.
+                    </p>
+
+                    <p>
+                        Design elegante, catálogo de produtos, filtros
+                        por categoria e carrinho de compras.
+                    </p>
+
+                    <a
+                        href="projetos/aurix/index.html"
+                        class="portfolio-button"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Ver projeto →
+                    </a>
+
+                </div>
+
+            </article>
+
+        </div>
+
     </div>
+
 </section>
 
 <section class="contact">
@@ -110,17 +281,22 @@
 
 <footer class="footer">
     <div class="container">
+
         <a href="index.html" class="logo">NEXORA <span>DIGITAL</span></a>
+
         <div class="footer-links">
             <a href="index.html">Início</a>
             <a href="servicos.html">Serviços</a>
             <a href="sobre.html">Sobre</a>
             <a href="contato.html">Contato</a>
         </div>
+
         <p>© 2026 NEXORA DIGITAL. Todos os direitos reservados.</p>
+
     </div>
 </footer>
 
 <script src="script.js"></script>
+
 </body>
 </html>
