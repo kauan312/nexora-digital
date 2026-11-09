@@ -1,1 +1,420 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <title>AURIX | Vista sua essência</title>
+
+    <meta name="description" content="AURIX — Moda premium, estilo e personalidade. Descubra uma nova maneira de vestir sua essência.">
+
+    <meta name="theme-color" content="#080808">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+
+    <!-- BARRA SUPERIOR -->
+    <div class="announcement">
+        <p>EXPRESSE SUA ESSÊNCIA. DESCUBRA A AURIX.</p>
+    </div>
+
+    <!-- CABEÇALHO -->
+    <header class="header">
+
+        <div class="header-container">
+
+            <a href="#inicio" class="logo">
+                AURIX<span>.</span>
+            </a>
+
+            <nav class="navigation" id="navigation">
+
+                <a href="#inicio">Início</a>
+                <a href="#colecao">Coleção</a>
+                <a href="#sobre">Nossa essência</a>
+                <a href="#contato">Contato</a>
+
+            </nav>
+
+            <div class="header-actions">
+
+                <button class="cart-button" id="cartButton" aria-label="Abrir carrinho">
+                    <span>CARINHO</span>
+                    <span class="cart-count" id="cartCount">0</span>
+                </button>
+
+                <button class="menu-button" id="menuButton" aria-label="Abrir menu">
+                    <span></span>
+                    <span></span>
+                </button>
+
+            </div>
+
+        </div>
+
+    </header>
+
+    <main>
+
+        <!-- HERO -->
+        <section class="hero" id="inicio">
+
+            <div class="hero-image"></div>
+
+            <div class="hero-overlay"></div>
+
+            <div class="hero-content">
+
+                <span class="hero-label">
+                    A NOVA EXPERIÊNCIA DA MODA
+                </span>
+
+                <h1>
+                    Vista sua<br>
+                    <span>essência.</span>
+                </h1>
+
+                <p>
+                    Mais do que roupas, uma expressão da sua personalidade.
+                    Descubra o equilíbrio entre elegância, atitude e exclusividade.
+                </p>
+
+                <a href="#colecao" class="primary-button">
+                    EXPLORAR COLEÇÃO
+                    <span>↗</span>
+                </a>
+
+            </div>
+
+            <div class="hero-bottom">
+                <span>ESTILO QUE FALA POR VOCÊ.</span>
+                <span>01 — 04</span>
+            </div>
+
+        </section>
+
+        <!-- DIFERENCIAIS -->
+        <section class="benefits">
+
+            <div class="benefit">
+                <span>✦</span>
+                <p>ESTILO EXCLUSIVO</p>
+            </div>
+
+            <div class="benefit">
+                <span>◇</span>
+                <p>QUALIDADE E CONFORTO</p>
+            </div>
+
+            <div class="benefit">
+                <span>↗</span>
+                <p>PERSONALIDADE EM CADA DETALHE</p>
+            </div>
+
+        </section>
+
+        <!-- COLEÇÃO -->
+        <section class="collection section" id="colecao">
+
+            <div class="section-heading">
+
+                <div>
+                    <span class="eyebrow">SELEÇÃO AURIX</span>
+                    <h2>Escolha seu <span>estilo.</span></h2>
+                </div>
+
+                <p>
+                    Peças selecionadas para quem não abre mão de autenticidade.
+                </p>
+
+            </div>
+
+            <div class="categories">
+
+                <button class="category active" data-filter="todos">
+                    TODOS
+                </button>
+
+                <button class="category" data-filter="masculino">
+                    MASCULINO
+                </button>
+
+                <button class="category" data-filter="feminino">
+                    FEMININO
+                </button>
+
+                <button class="category" data-filter="acessorios">
+                    ACESSÓRIOS
+                </button>
+
+            </div>
+
+            <div class="products-grid" id="productsGrid">
+
+                <!-- PRODUTO 1 -->
+                <article class="product-card" data-category="masculino">
+
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=800&q=85" alt="Camiseta básica premium">
+
+                        <span class="product-tag">DESTAQUE</span>
+
+                        <button class="quick-add" data-product="Camiseta Essential">
+                            + ADICIONAR
+                        </button>
+                    </div>
+
+                    <div class="product-info">
+                        <div>
+                            <h3>Camiseta Essential</h3>
+                            <p>Masculino · Algodão</p>
+                        </div>
+
+                        <strong>R$ 89,90</strong>
+                    </div>
+
+                </article>
+
+                <!-- PRODUTO 2 -->
+                <article class="product-card" data-category="feminino">
+
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=800&q=85" alt="Look feminino elegante">
+
+                        <button class="quick-add" data-product="Look Elegance">
+                            + ADICIONAR
+                        </button>
+                    </div>
+
+                    <div class="product-info">
+                        <div>
+                            <h3>Look Elegance</h3>
+                            <p>Feminino · Casual</p>
+                        </div>
+
+                        <strong>R$ 159,90</strong>
+                    </div>
+
+                </article>
+
+                <!-- PRODUTO 3 -->
+                <article class="product-card" data-category="masculino">
+
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=800&q=85" alt="Moda urbana masculina">
+
+                        <button class="quick-add" data-product="Urban Style">
+                            + ADICIONAR
+                        </button>
+                    </div>
+
+                    <div class="product-info">
+                        <div>
+                            <h3>Urban Style</h3>
+                            <p>Masculino · Streetwear</p>
+                        </div>
+
+                        <strong>R$ 129,90</strong>
+                    </div>
+
+                </article>
+
+                <!-- PRODUTO 4 -->
+                <article class="product-card" data-category="acessorios">
+
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1611652022419-a9419f74343d?auto=format&fit=crop&w=800&q=85" alt="Acessórios de moda">
+
+                        <span class="product-tag">NOVO</span>
+
+                        <button class="quick-add" data-product="Acessório Gold">
+                            + ADICIONAR
+                        </button>
+                    </div>
+
+                    <div class="product-info">
+                        <div>
+                            <h3>Acessório Gold</h3>
+                            <p>Acessórios · Premium</p>
+                        </div>
+
+                        <strong>R$ 79,90</strong>
+                    </div>
+
+                </article>
+
+            </div>
+
+            <p class="demo-notice">
+                * Produtos, imagens e preços ilustrativos. Loja demonstrativa.
+            </p>
+
+        </section>
+
+        <!-- BANNER -->
+        <section class="editorial">
+
+            <div class="editorial-image"></div>
+
+            <div class="editorial-content">
+
+                <span class="eyebrow">AURIX COLLECTION</span>
+
+                <h2>
+                    O seu estilo.<br>
+                    Suas regras.
+                </h2>
+
+                <p>
+                    A verdadeira elegância está em ser você mesmo.
+                </p>
+
+                <a href="#colecao" class="outline-button">
+                    DESCOBRIR MAIS ↗
+                </a>
+
+            </div>
+
+        </section>
+
+        <!-- SOBRE -->
+        <section class="about section" id="sobre">
+
+            <div class="about-content">
+
+                <span class="eyebrow">NOSSA ESSÊNCIA</span>
+
+                <h2>
+                    Não é apenas<br>
+                    vestir. É <span>representar.</span>
+                </h2>
+
+                <p>
+                    A AURIX nasceu com uma ideia: transformar a moda em
+                    uma forma de expressão. Acreditamos que cada detalhe
+                    transmite personalidade e que seu estilo deve contar
+                    sua própria história.
+                </p>
+
+                <a href="#contato" class="text-link">
+                    CONHEÇA NOSSA PROPOSTA ↗
+                </a>
+
+            </div>
+
+            <div class="about-visual">
+                <div class="about-frame">
+                    <span>A</span>
+                    <p>AURIX</p>
+                    <small>VISTA SUA ESSÊNCIA</small>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- NEWSLETTER -->
+        <section class="newsletter" id="contato">
+
+            <span class="eyebrow">FAÇA PARTE DA AURIX</span>
+
+            <h2>
+                Seu próximo estilo<br>
+                começa <span>aqui.</span>
+            </h2>
+
+            <p>
+                Entre em contato e conheça nossa coleção demonstrativa.
+            </p>
+
+            <a href="https://wa.me/5544984133529?text=Olá!%20Gostaria%20de%20conhecer%20a%20AURIX." target="_blank" rel="noopener noreferrer" class="primary-button">
+                FALAR COM A AURIX ↗
+            </a>
+
+        </section>
+
+    </main>
+
+    <!-- RODAPÉ -->
+    <footer class="footer">
+
+        <div class="footer-main">
+
+            <div>
+                <a href="#inicio" class="logo footer-logo">
+                    AURIX<span>.</span>
+                </a>
+
+                <p>
+                    Vista sua essência.<br>
+                    Expresse sua personalidade.
+                </p>
+            </div>
+
+            <div class="footer-column">
+                <h3>NAVEGAÇÃO</h3>
+                <a href="#inicio">Início</a>
+                <a href="#colecao">Coleção</a>
+                <a href="#sobre">Nossa essência</a>
+            </div>
+
+            <div class="footer-column">
+                <h3>CONTATO</h3>
+                <a href="#contato">Fale conosco</a>
+                <a href="https://wa.me/554498413529" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <p>© <span id="year"></span> AURIX. Todos os direitos reservados.</p>
+
+            <span>UM PROJETO DEMONSTRATIVO NEXORA DIGITAL</span>
+        </div>
+
+    </footer>
+
+    <!-- CARRINHO -->
+    <div class="cart-overlay" id="cartOverlay">
+
+        <div class="cart-panel">
+
+            <div class="cart-header">
+                <h2>Seu carrinho</h2>
+
+                <button id="closeCart" aria-label="Fechar carrinho">
+                    ✕
+                </button>
+            </div>
+
+            <div class="cart-items" id="cartItems">
+                <p class="empty-cart">Seu carrinho está vazio.</p>
+            </div>
+
+            <div class="cart-footer">
+                <div class="cart-total">
+                    <span>Total</span>
+                    <strong id="cartTotal">R$ 0,00</strong>
+                </div>
+
+                <button class="checkout-button" id="checkoutButton">
+                    FINALIZAR PELO WHATSAPP ↗
+                </button>
+
+                <small>Compra demonstrativa. Nenhum pagamento será realizado.</small>
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+</html>
