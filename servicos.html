@@ -95,6 +95,34 @@
             box-shadow: 0 8px 25px rgba(212,175,99,.2);
         }
 
+        /* IDENTIDADE DA BRAVO PIZZA */
+        .portfolio-card.bravo-card {
+            border-color: rgba(227,38,54,.35);
+        }
+
+        .portfolio-card.bravo-card:hover {
+            border-color: #e32636;
+            box-shadow: 0 20px 50px rgba(227,38,54,.15);
+        }
+
+        .bravo-card .project-label {
+            color: #ff5361;
+            border-color: rgba(227,38,54,.5);
+        }
+
+        .bravo-card .portfolio-info h3 span {
+            color: #e32636;
+        }
+
+        .bravo-card .portfolio-button {
+            background: linear-gradient(135deg, #ff5361, #c7192b);
+            color: white;
+        }
+
+        .bravo-card .portfolio-button:hover {
+            box-shadow: 0 8px 25px rgba(227,38,54,.3);
+        }
+
         @media(max-width: 768px) {
             .portfolio-card {
                 grid-template-columns: 1fr;
@@ -161,9 +189,7 @@
     </div>
 </section>
 
-<!-- SERVIÇOS E PORTFÓLIO -->
 <section class="services" id="lista-servicos">
-
     <div class="container">
 
         <div class="section-header">
@@ -212,16 +238,16 @@
 
         </div>
 
-        <!-- AURIX APARECE LOGO ABAIXO DOS SERVIÇOS -->
-
+        <!-- PORTFÓLIO -->
         <div class="portfolio" id="portfolio">
 
             <div class="section-header">
                 <span class="tag">NOSSO PORTFÓLIO</span>
-                <h2>Projeto em <span>destaque</span></h2>
-                <p>Conheça um exemplo de experiência digital desenvolvida pela NEXORA DIGITAL.</p>
+                <h2>Projetos em <span>destaque</span></h2>
+                <p>Conheça algumas experiências digitais desenvolvidas pela NEXORA DIGITAL.</p>
             </div>
 
+            <!-- PROJETO AURIX -->
             <article class="portfolio-card">
 
                 <div class="portfolio-image">
@@ -233,7 +259,6 @@
                 </div>
 
                 <div class="portfolio-info">
-
                     <span class="project-label">PROJETO DEMONSTRATIVO</span>
 
                     <h3>AURIX <span>Store</span></h3>
@@ -257,7 +282,44 @@
                     >
                         Ver projeto →
                     </a>
+                </div>
 
+            </article>
+
+            <!-- PROJETO BRAVO PIZZA -->
+            <article class="portfolio-card bravo-card">
+
+                <div class="portfolio-image">
+                    <img
+                        src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=1000"
+                        alt="Pizza artesanal da BRAVO PIZZA"
+                        loading="lazy"
+                    >
+                </div>
+
+                <div class="portfolio-info">
+                    <span class="project-label">PROJETO DEMONSTRATIVO</span>
+
+                    <h3>BRAVO <span>PIZZA</span></h3>
+
+                    <p>
+                        Uma experiência digital para uma pizzaria moderna,
+                        com identidade visual marcante em vermelho e preto.
+                    </p>
+
+                    <p>
+                        Cardápio digital, categorias de sabores,
+                        produtos e recursos para montar pedidos.
+                    </p>
+
+                    <a
+                        href="projetos/bravo-pizza/index.html"
+                        class="portfolio-button"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Ver projeto →
+                    </a>
                 </div>
 
             </article>
@@ -265,7 +327,6 @@
         </div>
 
     </div>
-
 </section>
 
 <section class="contact">
