@@ -1,1 +1,121 @@
 
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="BRAVO PIZZA — O sabor que merece aplausos! Peça sua pizza favorita.">
+    <title>BRAVO PIZZA | O sabor que merece aplausos!</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800;900&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="header">
+        <a href="#" class="logo">
+            BRAVO<span>PIZZA</span><small>FORNO & SABOR</small>
+        </a>
+
+        <nav class="nav">
+            <a href="#inicio">Início</a>
+            <a href="#cardapio">Cardápio</a>
+            <a href="#sobre">Nossa história</a>
+            <a href="#contato">Contato</a>
+        </nav>
+
+        <a href="#cardapio" class="header-button">FAZER PEDIDO ↗</a>
+    </header>
+
+    <main>
+        <section class="hero" id="inicio">
+            <div class="hero-content">
+                <span class="eyebrow">★ FEITA PARA QUEM AMA PIZZA</span>
+
+                <h1>O sabor que<br>merece <span>aplausos.</span></h1>
+
+                <p>
+                    Ingredientes selecionados, massa especial
+                    e aquele sabor que transforma qualquer momento.
+                </p>
+
+                <div class="hero-buttons">
+                    <a href="#cardapio" class="primary-button">EXPLORAR CARDÁPIO ↗</a>
+                    <a href="#sobre" class="secondary-button">CONHEÇA A BRAVO</a>
+                </div>
+
+                <div class="hero-info">
+                    <div><strong>100%</strong><span> Sabor especial</span></div>
+                    <div><strong>ARTESANAL</strong><span> Massa especial</span></div>
+                </div>
+            </div>
+
+            <div class="hero-image">
+                <img src="https://images.unsplash.com/photo-1579751626657-72bc17010498?w=1200" alt="Pizza artesanal com queijo e ingredientes frescos">
+                <div class="image-tag">
+                    <span>★</span>
+                    <div><strong>UMA EXPLOSÃO DE SABOR</strong><small>Preparada com carinho</small></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="features">
+            <div>🍅 <span>Ingredientes selecionados</span></div>
+            <div>🔥 <span>Preparação especial</span></div>
+            <div>🍕 <span>Feita na hora</span></div>
+            <div>❤️ <span>Amor em cada fatia</span></div>
+        </section>
+
+        <section class="menu-section" id="cardapio">
+            <div class="section-heading">
+                <span class="eyebrow">NOSSO CARDÁPIO</span>
+                <h2>Escolha sua próxima <span>paixão.</span></h2>
+                <p>Sabores preparados para deixar seu momento ainda melhor.</p>
+            </div>
+
+            <div class="categories">
+                <button class="category active" data-category="todas">Todas</button>
+                <button class="category" data-category="tradicionais">Tradicionais</button>
+                <button class="category" data-category="especiais">Especiais</button>
+                <button class="category" data-category="doces">Doces</button>
+            </div>
+
+            <div class="products-grid" id="products-grid"></div>
+        </section>
+
+        <section class="about-section" id="sobre">
+            <div class="about-image">
+                <img src="https://images.unsplash.com/photo-1571407970349-bc81e7e96d47?w=1000" alt="Pizza artesanal saindo do forno">
+            </div>
+            <div class="about-content">
+                <span class="eyebrow">MAIS QUE UMA PIZZARIA</span>
+                <h2>O segredo está em cada <span>detalhe.</span></h2>
+                <p>
+                    Na BRAVO PIZZA, acreditamos que uma boa pizza
+                    reúne pessoas, cria memórias e transforma momentos
+                    simples em ocasiões especiais.
+                </p>
+                <a href="#cardapio" class="primary-button">ENCONTRE SEU SABOR ↗</a>
+            </div>
+        </section>
+
+        <section class="contact-section" id="contato">
+            <span class="eyebrow">VAMOS CONVERSAR?</span>
+            <h2>Seu próximo momento especial começa com uma pizza.</h2>
+            <a href="#cardapio" class="primary-button">FAZER MEU PEDIDO ↗</a>
+        </section>
+    </main>
+
+    <footer>
+        <a href="#" class="logo">BRAVO<span>PIZZA</span></a>
+        <p>© <span id="year"></span> BRAVO PIZZA. Todos os direitos reservados.</p>
+        <span>O sabor que merece aplausos!</span>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
